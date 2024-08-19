@@ -1,7 +1,8 @@
 # React + Vite
 
-### 실행
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-`npm i` - 처음 clone 받으면 터미널에서 실행
+Currently, two official plugins are available:
 
-`npm run dev` - 프로젝트 실행
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
