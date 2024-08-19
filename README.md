@@ -1,2 +1,7 @@
-# scooter-front
-React를 사용하여 유저/어드민 모바일 웹페이지 제작
+# React + Vite
+
+### 실행
+
+`npm i` - 처음 clone 받으면 터미널에서 실행
+
+`npm run dev` - 프로젝트 실행
