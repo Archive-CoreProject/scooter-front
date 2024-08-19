@@ -2,11 +2,13 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
+  box-sizing: border-box;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(255, 251, 244);
 }
 
 body {
@@ -20,4 +22,17 @@ body {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+}
+
+button {
+  width: 100%;
+  border-radius: 0.7rem;
+  min-height: 2rem;
+  border: none;
+  margin: 0.5rem 0;
+  padding: 1rem;
+  background-color: #019863;
+  color: white;
+  font-weight: bold;
+  font-size: 1.1rem;
 }

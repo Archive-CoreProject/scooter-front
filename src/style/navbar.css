@@ -1,0 +1,10 @@
+#logo {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  padding: 0.8rem 0;
+  border-bottom: 2px solid;
+  background-color: white;
+}

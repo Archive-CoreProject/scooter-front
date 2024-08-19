@@ -1,9 +1,12 @@
+import { Outlet } from "react-router-dom";
 import "./App.css";
+import Navbar from "./components/Navbar";
 
 function App() {
   return (
     <>
-      <h1>초기세팅 완료</h1>
+      <Navbar />
+      <Outlet />
     </>
   );
 }
