@@ -14,7 +14,7 @@
 1. `develop`브랜치는 항상 최신 상태로 유지해주세요.
 ![image](https://github.com/user-attachments/assets/8e307695-d679-4723-ab1f-261203c83dff)
 2. 새로운 작업을 할 땐 브랜치를 새로 생성하여 작업합니다.
-- 작명 규칙 : `feature-작명`와 같이 feature-는 반드시 붙여주셔야 합니다.   
+- 작명 규칙 : `feature/작명`와 같이 `feature/`는 반드시 붙여주셔야 합니다.   
 ![image](https://github.com/user-attachments/assets/3de6dbc7-8fb6-4eb3-9e2c-aa5f89b3986b)   
 ![image](https://github.com/user-attachments/assets/7648c85f-a17b-457b-869b-f19c40d54206)   
 ![image](https://github.com/user-attachments/assets/a0f79bef-590b-4731-8e60-78cb08a98940)   
