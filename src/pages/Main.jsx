@@ -13,6 +13,13 @@ const Main = () => {
         </p>
         <button
           onClick={() => {
+            navigate("/blue");
+          }}
+        >
+          킥보드 찾기
+        </button>
+        <button
+          onClick={() => {
             navigate("/auth");
           }}
         >

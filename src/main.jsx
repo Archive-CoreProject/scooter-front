@@ -10,6 +10,7 @@ import Join from "./pages/user/Join.jsx";
 import Pay from "./pages/user/Pay.jsx";
 import Auth from "./pages/Auth.jsx";
 import NotFound from "./components/NotFound.jsx";
+import Bluetooth from "./pages/Bluetooth.jsx";
 
 const router = createBrowserRouter([
   {
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
       {
         path: "/auth",
         element: <Auth />,
+      },
+      {
+        path: "/blue",
+        element: <Bluetooth />,
       },
     ],
   },
