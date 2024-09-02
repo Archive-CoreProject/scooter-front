@@ -11,6 +11,9 @@ import Pay from "./pages/user/Pay.jsx";
 import Auth from "./pages/Auth.jsx";
 import NotFound from "./components/NotFound.jsx";
 import Signup from './pages/Signup';
+import Mmanager from './pages/Mmanager.jsx'
+import Userinfo from './pages/Userinfo.jsx'
+import Rhistory from './pages/Rhistory.jsx'
 
 const router = createBrowserRouter([
   {
@@ -42,7 +45,19 @@ const router = createBrowserRouter([
       {
         path: "/signup",
         element: <Signup />,
-      },   
+      },  
+      {
+        path: "/mmanager",
+        element: <Mmanager />,
+      },  
+      {
+        path: "/userinfo",
+        element: <Userinfo />,
+      },
+      {
+        path: "/rhistory",
+        element: <Rhistory />,
+      },  
     ],
   },
 ]);
