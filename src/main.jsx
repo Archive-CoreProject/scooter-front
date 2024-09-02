@@ -11,7 +11,6 @@ import Pay from "./pages/user/Pay.jsx";
 import Auth from "./pages/Auth.jsx";
 import NotFound from "./components/NotFound.jsx";
 import Signup from './pages/Signup';
-import Smanager from './pages/Smanager.jsx'
 
 const router = createBrowserRouter([
   {
