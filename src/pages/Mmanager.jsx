@@ -1,5 +1,5 @@
 // src/UserManagement.js
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "../style/Mmanager.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -43,11 +43,20 @@ const UserManagement = () => {
   }, []);
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", maxHeight: "100vh", marginTop: "10rem" }}>
-      <div className="user-management">
-        {members.map((v, i) => (
-          <UserBox key={i} userId={v.user_id} name={v.user_name} phone={v.user_phone} role={v.user_role} />
-        ))}
+    <div style={{ marginTop: "15rem" }}>
+      <button
+        onClick={() => {
+          navigate("/");
+        }}
+      >
+        뒤로가기
+      </button>
+      <div style={{ display: "flex", flexDirection: "column", maxHeight: "100vh" }}>
+        <div className="user-management">
+          {members.map((v, i) => (
+            <UserBox key={i} userId={v.user_id} name={v.user_name} phone={v.user_phone} role={v.user_role} />
+          ))}
+        </div>
       </div>
     </div>
   );
