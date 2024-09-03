@@ -13,7 +13,8 @@ body {
     padding: 40px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 350px;
+    width: 300px;
+    min-height: 500px;
     text-align: center;
 }
 
@@ -28,40 +29,41 @@ body {
     flex-direction: column;
 }
 
-.id-field {
+.input-group {
     display: flex;
     gap: 10px;
     margin-bottom: 10px;
+    align-items: center;
 }
 
+/* 모든 입력창에 동일하게 적용되는 높이 */
 .input-field {
+    flex: 1;
     padding: 10px;
-    margin: 10px 0;
+    height: 40px; /* 모든 입력창의 높이를 40px로 통일 */
     border: 1px solid #ddd;
     border-radius: 4px;
     font-size: 16px;
-    flex: 1; 
 }
 
 .check-id-button {
-    padding: 10px;
-    background-color: #007bff;
+    padding: 10px 16px;
+    background-color: #28a745; /* 초록색 배경 */
     border: none;
     border-radius: 4px;
     color: white;
-    font-size: 14px;
+    font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
 .check-id-button:hover {
-    background-color: #0056b3;
+    background-color: #218838; /* 호버 시 조금 더 진한 초록색 */
 }
 
 .signup-button {
     padding: 10px;
-    margin-top: 20px;
-    background-color: #28a745;
+    background-color: #28a745; /* 초록색 배경 */
     border: none;
     border-radius: 4px;
     color: white;
@@ -71,7 +73,19 @@ body {
 }
 
 .signup-button:hover {
-    background-color: #218838;
+    background-color: #218838; /* 호버 시 조금 더 진한 초록색 */
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.success-message {
+    color: green;
+    font-size: 14px;
+    margin-top: 5px;
 }
 
 .login-prompt {
@@ -80,16 +94,12 @@ body {
     color: #555;
 }
 
-.login-link {
+.link {
     color: #007bff;
     text-decoration: none;
 }
 
-.login-link:hover {
+.link:hover {
     text-decoration: underline;
 }
-.error-message {
-    color: red;
-    font-size: 14px;
-    margin-top: 5px;
-  }
+

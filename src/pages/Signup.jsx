@@ -1,60 +1,110 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import '../style/Signup.css'; 
 
 const SignupPage = () => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [userId, setUserId] = useState('');
+  const [userPw, setUserPw] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [userName, setUserName] = useState('');
+  const [birth, setBirth] = useState('');
+  const [phone, setPhone] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+  const [successMessage, setSuccessMessage] = useState('');
+  const [isUserIdAvailable, setIsUserIdAvailable] = useState(null); // 아이디 중복 확인 상태
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
+    // 유효성 검사
     const usernameRegex = /^[a-zA-Z0-9]{6,}$/;
-    if (!usernameRegex.test(username)) {
+    if (!usernameRegex.test(userId)) {
       setErrorMessage('아이디는 영문과 숫자로 구성된 6자 이상이어야 합니다.');
       return;
     }
 
     const passwordRegex = /^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
-    if (!passwordRegex.test(password)) {
+    if (!passwordRegex.test(userPw)) {
       setErrorMessage('비밀번호는 영문과 숫자로 구성된 8자 이상이어야 합니다.');
       return;
     }
 
-    if (password !== confirmPassword) {
+    if (userPw !== confirmPassword) {
       setErrorMessage('비밀번호가 일치하지 않습니다.');
       return;
     }
 
-    setErrorMessage('');
-    alert('회원가입이 완료되었습니다.');
+    if (!isUserIdAvailable) {
+      setErrorMessage('아이디 중복 확인을 해주세요.');
+      return;
+    }
+
+    try {
+      setErrorMessage('');
+      setSuccessMessage('');
+
+      // 회원가입 요청
+      const response = await axios.post('https://port-0-scooter-back-lzahw55k260a832a.sel4.cloudtype.app/user/signup', {
+        userId,
+        userPw,
+        userName,
+        birth,
+        phone,
+      });
+
+      if (response.status === 201) {
+        setSuccessMessage('회원가입에 성공했습니다! 로그인 페이지로 이동하세요.');
+      }
+    } catch (error) {
+      setErrorMessage(error.response?.data.error || '회원가입에 실패했습니다.');
+    }
+  };
+
+  // 아이디 중복 확인 함수
+  const handleCheckUserId = async () => {
+    try {
+      const response = await axios.post('https://port-0-scooter-back-lzahw55k260a832a.sel4.cloudtype.app/user/check-username', {
+        userId,
+      });
+
+      if (response.status === 200) {
+        setIsUserIdAvailable(true);
+        setErrorMessage('');
+        alert('사용 가능한 아이디입니다.');
+      }
+    } catch (error) {
+      setIsUserIdAvailable(false);
+      setErrorMessage(error.response?.data.error || '아이디 중복 확인에 실패했습니다.');
+    }
   };
 
   return (
     <div className="signup-container">
       <h2 className="signup-title">회원가입</h2>
       <form className="signup-form" onSubmit={handleSubmit}>
-        <div className="id-field">
+        <div className="input-group">
           <input
             type="text"
             placeholder="아이디(영문,숫자 6자 이상)"
             className="input-field"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            value={userId}
+            onChange={(e) => {
+              setUserId(e.target.value);
+              setIsUserIdAvailable(null); // 아이디 변경 시 중복 확인 상태 초기화
+            }}
             required
           />
-          <button type="button" className="check-id-button">중복 확인</button> {/* 아이디 중복 확인 버튼 */}
+          <button type="button" className="check-id-button" onClick={handleCheckUserId}>
+            중복 <br />
+            확인
+          </button>
         </div>
-        <input type="text" placeholder="사용자 이름" className="input-field" />
-        <input type="phone" placeholder="전화번호" className="input-field" />
-        <input type="number" placeholder="나이" className="input-field" />
         <input
           type="password"
           placeholder="비밀번호 (영문,숫자 8자 이상)"
           className="input-field"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          value={userPw}
+          onChange={(e) => setUserPw(e.target.value)}
           required
         />
         <input
@@ -65,7 +115,32 @@ const SignupPage = () => {
           onChange={(e) => setConfirmPassword(e.target.value)}
           required
         />
+        <input
+          type="text"
+          placeholder="사용자 이름"
+          className="input-field"
+          value={userName}
+          onChange={(e) => setUserName(e.target.value)}
+          required
+        />
+        <input
+          type="date"
+          className="input-field"
+          value={birth}
+          onChange={(e) => setBirth(e.target.value)}
+          max="9999-12-31"
+          required
+        />
+        <input
+          type="text"
+          placeholder="전화번호 (예: 010-1234-5678)"
+          className="input-field"
+          value={phone}
+          onChange={(e) => setPhone(e.target.value)}
+          required
+        />
         {errorMessage && <p className="error-message">{errorMessage}</p>}
+        {successMessage && <p className="success-message">{successMessage}</p>}
         <button type="submit" className="signup-button">가입하기</button>
       </form>
       <p className="login-prompt">이미 계정이 있으신가요? <a href="/login" className="login-link">로그인</a></p>
@@ -74,3 +149,4 @@ const SignupPage = () => {
 };
 
 export default SignupPage;
+
