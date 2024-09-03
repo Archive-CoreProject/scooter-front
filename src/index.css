@@ -9,14 +9,16 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: rgb(255, 251, 244);
+  min-height: 100vh;
 }
 
 body {
   margin: 0;
   display: flex;
+  justify-content: center;
+  align-items: center;
   place-items: center;
   min-width: 320px;
-  min-height: 100vh;
 }
 
 h1 {
