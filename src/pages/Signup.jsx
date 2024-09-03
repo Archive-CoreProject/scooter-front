@@ -1,81 +1,93 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import '../style/Signup.css'; 
+import { useState } from "react";
+import axios from "axios";
+import "../style/Signup.css";
+import { useNavigate } from "react-router-dom";
 
 const SignupPage = () => {
-  const [userId, setUserId] = useState('');
-  const [userPw, setUserPw] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
-  const [userName, setUserName] = useState('');
-  const [birth, setBirth] = useState('');
-  const [phone, setPhone] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
-  const [successMessage, setSuccessMessage] = useState('');
+  const [userId, setUserId] = useState("");
+  const [userPw, setUserPw] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [userName, setUserName] = useState("");
+  const [birth, setBirth] = useState("");
+  const [phone, setPhone] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
   const [isUserIdAvailable, setIsUserIdAvailable] = useState(null); // 아이디 중복 확인 상태
 
+  const navigate = useNavigate();
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     // 유효성 검사
     const usernameRegex = /^[a-zA-Z0-9]{6,}$/;
     if (!usernameRegex.test(userId)) {
-      setErrorMessage('아이디는 영문과 숫자로 구성된 6자 이상이어야 합니다.');
+      setErrorMessage("아이디는 영문과 숫자로 구성된 6자 이상이어야 합니다.");
       return;
     }
 
     const passwordRegex = /^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
     if (!passwordRegex.test(userPw)) {
-      setErrorMessage('비밀번호는 영문과 숫자로 구성된 8자 이상이어야 합니다.');
+      setErrorMessage("비밀번호는 영문과 숫자로 구성된 8자 이상이어야 합니다.");
       return;
     }
 
     if (userPw !== confirmPassword) {
-      setErrorMessage('비밀번호가 일치하지 않습니다.');
+      setErrorMessage("비밀번호가 일치하지 않습니다.");
       return;
     }
 
     if (!isUserIdAvailable) {
-      setErrorMessage('아이디 중복 확인을 해주세요.');
+      setErrorMessage("아이디 중복 확인을 해주세요.");
       return;
     }
 
     try {
-      setErrorMessage('');
-      setSuccessMessage('');
+      setErrorMessage("");
+      setSuccessMessage("");
 
       // 회원가입 요청
-      const response = await axios.post('https://port-0-scooter-back-lzahw55k260a832a.sel4.cloudtype.app/user/signup', {
-        userId,
-        userPw,
-        userName,
-        birth,
-        phone,
-      });
-
-      if (response.status === 201) {
-        setSuccessMessage('회원가입에 성공했습니다! 로그인 페이지로 이동하세요.');
-      }
-    } catch (error) {
-      setErrorMessage(error.response?.data.error || '회원가입에 실패했습니다.');
+      await axios
+        .post("http://192.168.219.59:3000/user/signup", {
+          userId,
+          userPw,
+          userName,
+          birth,
+          phone,
+        })
+        .then(() => {
+          navigate("/login");
+          setSuccessMessage("회원가입에 성공했습니다! 로그인 페이지로 이동하세요.");
+        });
+    } catch {
+      setErrorMessage("회원가입에 실패했습니다.");
     }
   };
 
   // 아이디 중복 확인 함수
   const handleCheckUserId = async () => {
-    try {
-      const response = await axios.post('https://port-0-scooter-back-lzahw55k260a832a.sel4.cloudtype.app/user/check-username', {
+    // const response = await axios.post("https://port-0-scooter-back-lzahw55k260a832a.sel4.cloudtype.app/user/checkid", {
+    //   userId,
+    // });
+    console.log(userId);
+    await axios
+      .post("http://192.168.219.59:3000/user/checkid", {
         userId,
-      });
-
-      if (response.status === 200) {
+      })
+      .then(() => {
         setIsUserIdAvailable(true);
-        setErrorMessage('');
-        alert('사용 가능한 아이디입니다.');
-      }
-    } catch (error) {
-      setIsUserIdAvailable(false);
-      setErrorMessage(error.response?.data.error || '아이디 중복 확인에 실패했습니다.');
-    }
+        setErrorMessage("");
+        alert("사용 가능한 아이디입니다.");
+      })
+      .catch((err) => {
+        const status = err.response.status;
+        if (status === 409) {
+          setIsUserIdAvailable(false);
+          setErrorMessage("이미 사용중인 아이디 입니다.");
+        } else {
+          setIsUserIdAvailable(false);
+          setErrorMessage("오류가 발생했습니다. 다시 시도해주세요.");
+        }
+      });
   };
 
   return (
@@ -141,12 +153,18 @@ const SignupPage = () => {
         />
         {errorMessage && <p className="error-message">{errorMessage}</p>}
         {successMessage && <p className="success-message">{successMessage}</p>}
-        <button type="submit" className="signup-button">가입하기</button>
+        <button type="submit" className="signup-button">
+          가입하기
+        </button>
       </form>
-      <p className="login-prompt">이미 계정이 있으신가요? <a href="/login" className="login-link">로그인</a></p>
+      <p className="login-prompt">
+        이미 계정이 있으신가요?{" "}
+        <a href="/login" className="login-link">
+          로그인
+        </a>
+      </p>
     </div>
   );
 };
 
 export default SignupPage;
-
