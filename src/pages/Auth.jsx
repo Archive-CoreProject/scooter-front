@@ -1,4 +1,7 @@
+// import { useNavigate } from "react-router-dom";
+
 const Auth = () => {
+  // const navigate = useNavigate();
   return (
     <>
       <div>

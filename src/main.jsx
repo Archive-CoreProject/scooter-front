@@ -7,15 +7,13 @@ import Main from "./pages/Main.jsx";
 import Introduce from "./pages/Introduce.jsx";
 import Login from "./pages/Login.jsx";
 import Join from "./pages/user/Join.jsx";
-import Pay from "./pages/user/Pay.jsx";
 import Auth from "./pages/Auth.jsx";
 import NotFound from "./components/NotFound.jsx";
-import Signup from './pages/Signup';
-import Mmanager from './pages/Mmanager.jsx'
-import Userinfo from './pages/Userinfo.jsx'
-import Rhistory from './pages/Rhistory.jsx'
-import Ridepay from './pages/Ridepay.jsx'
-
+import Signup from "./pages/Signup";
+import Mmanager from "./pages/Mmanager.jsx";
+import Userinfo from "./pages/Userinfo.jsx";
+import Rhistory from "./pages/Rhistory.jsx";
+import Ridepay from "./pages/Ridepay.jsx";
 
 const router = createBrowserRouter([
   {
@@ -37,10 +35,6 @@ const router = createBrowserRouter([
         element: <Join />,
       },
       {
-        path: "/pay",
-        element: <Pay />,
-      },
-      {
         path: "/auth",
         element: <Auth />,
       },
@@ -59,10 +53,9 @@ const router = createBrowserRouter([
       {
         path: "/rhistory",
         element: <Rhistory />,
-
-      },  
+      },
       {
-        path: "/ridepay",
+        path: "/pay",
         element: <Ridepay />,
       },
     ],

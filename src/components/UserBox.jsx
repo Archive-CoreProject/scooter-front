@@ -2,9 +2,11 @@ import { useEffect, useState } from "react";
 import "../style/userBox.css";
 import axios from "axios";
 import { getCookie } from "../cookie";
+import { useNavigate } from "react-router-dom";
 
 const UserBox = ({ userId, name, phone, role }) => {
   const [userRole, setUserRole] = useState("");
+  const navigate = useNavigate();
   const toggleRole = () => {
     const newRole = userRole === "일반" ? "제한" : "일반";
     const changeUserRole = async () => {
@@ -21,12 +23,21 @@ const UserBox = ({ userId, name, phone, role }) => {
     };
     changeUserRole();
   };
+
   useEffect(() => {
     setUserRole(role === "일반" ? "일반" : "제한");
   }, [role]);
+
   return (
     <div id="userbox-container">
-      <div>{userId}</div>
+      <div
+        style={{ backgroundColor: "tomato", borderRadius: "0.4rem" }}
+        onClick={() => {
+          navigate("/userinfo");
+        }}
+      >
+        {userId}
+      </div>
       <div>{name}</div>
       <div>{phone}</div>
       <div>
