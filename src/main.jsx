@@ -14,6 +14,7 @@ import Signup from './pages/Signup';
 import Mmanager from './pages/Mmanager.jsx'
 import Userinfo from './pages/Userinfo.jsx'
 import Rhistory from './pages/Rhistory.jsx'
+import Ridepay from './pages/Ridepay.jsx'
 
 const router = createBrowserRouter([
   {
@@ -58,6 +59,10 @@ const router = createBrowserRouter([
         path: "/rhistory",
         element: <Rhistory />,
       },  
+      {
+        path: "/ridepay",
+        element: <Ridepay />,
+      },
     ],
   },
 ]);
