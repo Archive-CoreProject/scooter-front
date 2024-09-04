@@ -48,8 +48,9 @@ const UserManagement = () => {
         onClick={() => {
           navigate("/");
         }}
+        style={{ width: "5rem", display: "inherit" }}
       >
-        뒤로가기
+        뒤로
       </button>
       <div style={{ display: "flex", flexDirection: "column", maxHeight: "100vh" }}>
         <div className="user-management">

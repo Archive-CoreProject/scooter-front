@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "../style/userBox.css";
 import axios from "axios";
-import { getCookie } from "../cookie";
+import { getCookie, setCookie } from "../cookie";
 import { useNavigate } from "react-router-dom";
 
 const UserBox = ({ userId, name, phone, role }) => {
@@ -32,7 +32,8 @@ const UserBox = ({ userId, name, phone, role }) => {
     <div id="userbox-container">
       <div
         style={{ backgroundColor: "tomato", borderRadius: "0.4rem" }}
-        onClick={() => {
+        onClick={(e) => {
+          setCookie("user", e.target.innerText);
           navigate("/userinfo");
         }}
       >
