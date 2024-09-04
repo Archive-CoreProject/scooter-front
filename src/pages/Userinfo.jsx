@@ -96,7 +96,7 @@ const UserDetail = () => {
       <div className="user-header">
         <h2>{userDetail.name}님 사용 내역</h2>
       </div>
-      <UserHistoryCell history={userHistory} />
+      {userHistory.length > 0 ? <UserHistoryCell history={userHistory} /> : <div>이용내역이 없어요..!</div>}
     </div>
   );
 };
