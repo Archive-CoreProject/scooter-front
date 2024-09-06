@@ -1,10 +1,16 @@
-/* input {
+.auth-input {
   box-sizing: border-box;
   padding: 0.6rem;
   width: 100%;
-  font-size: 2.5rem;
-  background-color: rgb(163, 207, 163);
-  border-radius: 0.4rem;
-  border-width: 0;
+  font-size: 15px;
+  font-weight: bold;
+  font-family: Inter;
+  /* background-color: rgb(127, 170, 127); */
+  border-width: 0 0 3px;
+  border-color: rgb(127, 170, 127);
   outline: none;
-} */
+}
+
+.auth-input::placeholder {
+  color: rgb(152, 173, 158);
+}
