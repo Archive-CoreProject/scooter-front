@@ -31,7 +31,7 @@ const UserBox = ({ userId, name, phone, role }) => {
   return (
     <div id="userbox-container">
       <div
-        style={{ backgroundColor: "tomato", borderRadius: "0.4rem" }}
+        style={{ backgroundColor: "SeaGreen ", borderRadius: "0.4rem",color:"white" }}
         onClick={(e) => {
           setCookie("user", e.target.innerText);
           navigate("/userinfo");

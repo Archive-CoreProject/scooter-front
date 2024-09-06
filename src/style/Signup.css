@@ -99,6 +99,11 @@ body {
     text-decoration: none;
 }
 
+.link:active,a:visited{
+    color: #28a745;
+    text-decoration: none;
+}
+
 .link:hover {
     text-decoration: underline;
 }

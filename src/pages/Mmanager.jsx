@@ -1,4 +1,3 @@
-// src/UserManagement.js
 import { useEffect, useState } from "react";
 import "../style/Mmanager.css";
 import axios from "axios";
@@ -18,6 +17,8 @@ const initialMembers = [
 
 const UserManagement = () => {
   const [members, setMembers] = useState(initialMembers);
+  const [filteredMembers, setFilteredMembers] = useState(initialMembers);
+  const [searchTerm, setSearchTerm] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -32,6 +33,7 @@ const UserManagement = () => {
       })
         .then((res) => {
           setMembers(res.data.result);
+          setFilteredMembers(res.data.result);
         })
         .catch((err) => {
           console.log(err);
@@ -40,21 +42,67 @@ const UserManagement = () => {
         });
     };
     loadUserList();
-  }, []);
+  }, [navigate]);
+
+  const handleSearch = () => {
+    const filtered = members.filter((member) =>
+      member.user_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      member.user_id.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setFilteredMembers(filtered);
+  };
 
   return (
-    <div style={{ marginTop: "15rem" }}>
-      <button
-        onClick={() => {
-          navigate("/");
-        }}
-        style={{ width: "5rem", display: "inherit" }}
-      >
-        뒤로
-      </button>
-      <div style={{ display: "flex", flexDirection: "column", maxHeight: "100vh" }}>
-        <div className="user-management">
-          {members.map((v, i) => (
+    <div style={{ marginTop: "10rem", display: "flex", flexDirection: "column", alignItems: "center", gap: "20px" }}>
+      {/* 상단 고정 영역 */}
+      <div style={{ position: "sticky", top: "0", backgroundColor: "#f0f2f5", zIndex: "10", width: "100%", paddingBottom: "10px"}}>
+        <div style={{ display: "flex", width: "100%", justifyContent: "flex-start",marginBottom:"10",marginTop: "10px" }}>
+          <button
+            onClick={() => navigate("/")}
+            style={{
+              padding: "10px 20px",
+              backgroundColor: "#28a745",
+              color: "white",
+              border: "none",
+              borderRadius: "8px",
+              cursor: "pointer",
+              width: "120px",
+              height: "45px",
+            }}
+          >
+            뒤로
+          </button>
+        </div>
+        <div style={{ display: "flex", flexDirection: "row", alignItems: "center", gap: "0px", justifyContent: "center", width: "100%", maxWidth: "500px", marginTop: "20px" }}>
+          <input
+            type="text"
+            placeholder="유저 검색"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            style={{ padding: "10px", borderRadius: "8px 0 0 8px", border: "1px solid #ddd", outline: "none", flex: "1", height:"30px" }}
+          />
+          <button
+            onClick={handleSearch}
+            style={{
+              padding: "10px 20px",
+              backgroundColor: "#28a745",
+              color: "white",
+              border: "none",
+              borderRadius: "0 8px 8px 0",
+              cursor: "pointer",
+              height: "50px",
+              width: "100px",
+            }}
+          >
+            검색
+          </button>
+        </div>
+      </div>
+
+      {/* 회원 목록 스크롤 영역 */}
+      <div style={{ display: "flex", flexDirection: "column", maxHeight: "100vh", overflowY: "auto", width: "100%", maxWidth: "500px",marginTop: "20px" }}>
+        <div className="user-management" >
+          {filteredMembers.map((v, i) => (
             <UserBox key={i} userId={v.user_id} name={v.user_name} phone={v.user_phone} role={v.user_role} />
           ))}
         </div>

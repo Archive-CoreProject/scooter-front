@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { setCookie } from "../cookie.js";
+import { Link } from "react-router-dom"
 
 import "../style/Login.css";
 import { useNavigate } from "react-router-dom";
@@ -69,16 +70,16 @@ const LoginPage = () => {
         <br />
         <br />
         <br />
-        <a href="/forgot-password" className="link">
+        <Link to="/forgot-password" className="link">
           비밀번호를 잊으셨나요?
-        </a>
+        </Link>
       </p>
       <div className="divider"></div>
       <p className="signup-prompt">
         계정이 없으신가요?{" "}
-        <a href="/signup" className="link">
+        <Link to="/signup" className="link">
           가입하기
-        </a>
+        </Link>
       </p>
     </div>
   );

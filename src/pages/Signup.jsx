@@ -2,6 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import "../style/Signup.css";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom"
 
 const SignupPage = () => {
   const [userId, setUserId] = useState("");
@@ -159,9 +160,9 @@ const SignupPage = () => {
       </form>
       <p className="login-prompt">
         이미 계정이 있으신가요?{" "}
-        <a href="/login" className="login-link">
+        <Link to ="/login" className="login-link">
           로그인
-        </a>
+        </Link>
       </p>
     </div>
   );
