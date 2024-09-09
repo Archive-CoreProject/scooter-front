@@ -1,0 +1,83 @@
+/* src/style/Ridepay.css */
+.payment-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 40px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.header h2 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.ride-details {
+  margin-bottom: 20px;
+}
+
+.detail-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.detail-item .label {
+  font-size: 16px;
+  color: #333;
+  letter-spacing: 1px;
+}
+
+.detail-item .value {
+  font-size: 16px;
+  color: #333;
+  font-weight: bold;
+  padding-left: 10px;
+}
+
+.total-payment {
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 15px 0;
+  border-top: 2px solid #ddd;
+  margin-top: 20px;
+}
+
+.total-label {
+  color: #333;
+}
+
+.total-value {
+  color: #333;
+}
+
+.home-button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.home-button {
+  padding: 15px 30px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.home-button:hover {
+  background-color: #45a049;
+}

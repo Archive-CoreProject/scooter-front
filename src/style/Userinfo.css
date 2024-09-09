@@ -1,0 +1,36 @@
+/* src/style/Userinfo.css */
+.user-detail-container {
+  padding: 20px;
+  width: 400px;
+  /* border: 2px solid green; */
+  border-radius: 10px;
+  box-sizing: border-box;
+  margin: 0 auto;
+  height: 90vh;
+  background-color: #fff;
+}
+
+.user-history-cell {
+  /* border: 2px solid green; */
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 8px;
+}
+
+.user-history-cell h3 {
+  margin: 0 0 10px 0;
+  font-size: 18px;
+}
+
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.history-item {
+  padding: 10px;
+  border: 1px solid green;
+  border-radius: 4px;
+  background-color: #fff;
+}

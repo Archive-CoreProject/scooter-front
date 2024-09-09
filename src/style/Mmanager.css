@@ -1,0 +1,115 @@
+.user-management {
+  padding: 10px;
+  border-radius: 8px;
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+  max-width: 520px;
+  margin: 10 auto; /* 중앙 정렬 */
+  margin-top: -10px;
+}
+
+.user-management h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 22px;
+  color: #333;
+}
+
+.user-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 auto;
+  max-width: 100%;
+  margin-top: 0px;
+}
+
+.user-table th, .user-table td {
+  padding: 8px;
+  border: 1px solid #ddd;
+  text-align: center;
+  font-size: 14px;
+}
+
+.user-table th {
+  position: sticky;
+  /* 테이블 헤더 고정 */
+  top: 0;
+}
+
+.role-button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  color: white;
+  transition: background-color 0.3s;
+  font-size: 14px;
+}
+
+.role-button.normal {
+  background-color: #007bff;
+}
+
+.role-button.restricted {
+  background-color: #dc3545;
+}
+
+.role-button:hover {
+  opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+  .user-management {
+    padding: 15px;
+  }
+
+  .user-table {
+    width: 100%;
+    overflow-x: auto;
+    /* 테이블 가로 스크롤 가능 설정 */
+  }
+
+  .user-table th, .user-table td {
+    text-align: center;
+  }
+
+  .user-table thead {
+    display: table-header-group;
+    /* 헤더가 사라지지 않도록 설정 */
+  }
+
+  .user-table tr {
+    display: table-row;
+    /* 각 행을 테이블 행으로 유지 */
+  }
+
+  .user-table td {
+    display: table-cell;
+    /* 각 셀을 테이블 셀로 유지 */
+    border: 1px solid #ddd;
+  }
+}
+
+/* 수정된 .search-container 클래스 */
+.search-container {
+  display: flex;
+  flex-direction: row; /* 수평 정렬 */
+  align-items: center; /* 수직 가운데 정렬 */
+  justify-content: center; /* 가로 가운데 정렬 */
+  gap: 10px; /* 요소 간격 */
+  margin-bottom: 0px; /* 아래 간격 */
+}
+
+/* 버튼과 검색창의 일관된 스타일을 위한 클래스 추가 */
+.button {
+  padding: 10px 20px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.button:hover {
+  opacity: 0.8; /* Hover 효과 */
+}
