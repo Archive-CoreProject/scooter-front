@@ -57,7 +57,7 @@ const Main = () => {
             navigate("/pay");
           }}
         >
-          계산하기
+          결제내역
         </button>
         {isAdmin && (
           <button

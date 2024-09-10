@@ -1,7 +1,7 @@
 /* src/style/Userinfo.css */
 .user-detail-container {
   padding: 20px;
-  width: 400px;
+  width: 100%;
   /* border: 2px solid green; */
   border-radius: 10px;
   box-sizing: border-box;
@@ -23,6 +23,7 @@
 }
 
 .history-list {
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 10px;
