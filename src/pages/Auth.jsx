@@ -254,7 +254,7 @@ const Auth = () => {
         )}
         <h3 style={{ color: "tomato" }}>{errorText}</h3>
       </div>
-      <button onClick={() => paymentTest()}>결제 테스트</button>
+      {/* <button onClick={() => paymentTest()}>결제 테스트</button> */}
     </>
   );
 };

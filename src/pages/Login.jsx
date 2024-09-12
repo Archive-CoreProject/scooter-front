@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { setCookie } from "../cookie.js";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 
 import "../style/Login.css";
 import { useNavigate } from "react-router-dom";
@@ -34,7 +34,8 @@ const LoginPage = () => {
       }
     } catch (error) {
       console.error("로그인 실패:", error.response ? error.response.data : error.message);
-      setError("로그인에 실패했습니다. 아이디와 비밀번호를 확인하세요."); // 오류 메시지 설정
+      console.log(error.response.data.message);
+      setError(error.response.data.message); // 오류 메시지 설정
     }
   };
 
