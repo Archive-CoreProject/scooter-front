@@ -1,5 +1,12 @@
+@font-face {
+  font-family: 'PTBandocheB';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408@1.0/PTBandocheB.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'PTBandocheB';
   line-height: 1.5;
   font-weight: 400;
   box-sizing: border-box;
@@ -8,8 +15,10 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: rgb(255, 251, 244);
+  /* background-color: rgb(255, 251, 244); */
   min-height: 100vh;
+
+
 }
 
 body {
@@ -27,6 +36,7 @@ h1 {
 }
 
 button {
+  font-family: 'PTBandocheB';
   width: 100%;
   border-radius: 0.7rem;
   min-height: 2rem;
@@ -35,6 +45,5 @@ button {
   padding: 1rem;
   background-color: #019863;
   color: white;
-  font-weight: bold;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
 }

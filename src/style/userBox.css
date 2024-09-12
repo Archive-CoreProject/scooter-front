@@ -1,7 +1,7 @@
 #userbox-container {
   position: relative;
   box-sizing: border-box;
-  min-width: 80vw;
+  /* min-width: 80vw; */
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: 1fr;

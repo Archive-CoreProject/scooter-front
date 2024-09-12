@@ -37,13 +37,12 @@ const Main = () => {
             navigate("/login");
           }}
         >
-          로그아웃(개발전용)
+          로그아웃
         </button>
-        <h1>🛴⚡</h1>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime dolor sequi, officiis blanditiis, inventore
-          assumenda aliquid deleniti laboriosam eos, eius porro vel? Adipisci repellat in dolorum rerum consequuntur
-          beatae totam!
+        <h1>🛴⚡🧢</h1>
+        <p style={{ wordBreak: "keep-all" }}>
+          음주감지 헬멧이 장착된 공유킥보드는 사용자가 음주 측정을 통과해야만 주행할 수 있어, 사고를 예방하고 안전한
+          이동을 보장합니다. 간편한 헬멧 착용과 음주 감지로 보다 안전하게 킥보드를 이용해보세요.
         </p>
         <button
           onClick={() => {
@@ -57,7 +56,7 @@ const Main = () => {
             navigate("/pay");
           }}
         >
-          계산하기
+          결제내역
         </button>
         {isAdmin && (
           <button

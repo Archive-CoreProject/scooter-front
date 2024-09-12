@@ -1,11 +1,21 @@
 /* src/style/Ridepay.css */
 .payment-container {
-  max-width: 800px;
-  margin: 40px auto;
+  font-family: 'PTBandocheB';
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%);
+  justify-self: flex-start;
+  min-width: 350px;
+  max-width: 400px;
+  margin: 20px auto;
+  min-height: 10vh;
   padding: 40px;
-  border: 1px solid #ddd;
+  /* border: 1px solid #ddd; */
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+div, p {
+  font-family: 'PTBandocheB';
 }
 
 .header {
@@ -43,6 +53,36 @@
   padding-left: 10px;
 }
 
+.pay-list-item {
+  font-family: 'PTBandocheB';
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 5rem;
+  border-radius: 0.6rem;
+  border: 1px solid #45a049;
+  margin-bottom: 1rem;
+  padding: 0.4rem 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  font-family: Inter;
+}
+
+.list-item-text {
+  /* background-color: tomato; */
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  font-size: 0.9rem;
+}
+
+.list-item-text p {
+  margin: 0;
+}
+
 .total-payment {
   display: flex;
   justify-content: space-between;
@@ -69,15 +109,7 @@
 
 .home-button {
   padding: 15px 30px;
-  background-color: #4caf50;
   color: white;
-  border: none;
   border-radius: 5px;
-  font-size: 16px;
-  cursor: pointer;
   transition: background-color 0.3s;
-}
-
-.home-button:hover {
-  background-color: #45a049;
 }
